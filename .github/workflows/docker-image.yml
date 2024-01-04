@@ -9,7 +9,7 @@ on:
 
 env:
   REGISTRY: "ghcr.io"
-  IMAGE: ${{ github.repository }}
+  IMAGE: "caddy"
 
 jobs:
   build:
@@ -41,5 +41,5 @@ jobs:
         context: .
         push: true
         tags: |
-          latest
-          ${{ github.RUN_ID }}
+          ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE }}:latest
+          ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE }}:${{ github.RUN_ID }}
