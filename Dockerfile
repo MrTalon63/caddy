@@ -10,4 +10,4 @@ RUN xcaddy build \
 
 FROM caddy:latest
 
-COPY --from=builer /usr/bin/caddy /usr/bin/caddy
+COPY --from=builder /usr/bin/caddy /usr/bin/caddy
