@@ -33,7 +33,7 @@ jobs:
       id: meta
       uses: docker/metadata-action@v3
       with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE }}:latest
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE }}
 
     - name: Build and push image
       uses: docker/build-push-action@v3
@@ -41,5 +41,5 @@ jobs:
         context: .
         push: true
         tags: |
-          latest
-          ${{ github.RUN_ID }}
+          ${{ env.REGISTRY }}/${{ env.IMAGE }}:latest
+          ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ github.RUN_ID }}
