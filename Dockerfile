@@ -7,3 +7,7 @@ RUN xcaddy build \
     --with github.com/gamalan/caddy-tlsredis \
     --with github.com/ueffel/caddy-brotli \
     --with github.com/WeidiDeng/caddy-cloudflare-ip \
+
+FROM caddy:latest
+
+COPY --from=builer /usr/bin/caddy /usr/bin/caddy
